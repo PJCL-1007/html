@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Letter</title>
+    <style>
+        body {
+            background-color: #e0f7fa;
+            font-family: 'Times New Roman', Times, serif; /* Font changed to Times New Roman */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+
+        /* Envelope Styles */
+        .envelope {
+            width: 400px;
+            height: 250px;
+            background-color: #1e5e81; /* Blue envelope color */
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer; /* Adds pointer cursor when hovering over the envelope */
+            transition: transform 0.5s ease; /* Smooth opening and closing transition */
+        }
+
+        /* Envelope flap */
+        .flap {
+            width: 100%;
+            height: 150px;
+            background-color: #16527c; /* Slightly darker blue */
+            position: absolute;
+            top: 0;
+            left: 0;
+            clip-path: polygon(0 100%, 50% 0%, 100% 100%);
+            transition: transform 1s ease; /* Transition for flap movement */
+        }
+
+        /* The Letter Paper (Bond Paper) */
+        .letter {
+            width: 100%;
+            max-width: 400px;
+            background-color: #ffffff;
+            padding: 30px;
+            box-sizing: border-box;
+            border-radius: 8px;
+            position: absolute;
+            top: 250px; /* Start just below the envelope */
+            opacity: 0;
+            transform: translateY(50px); /* Initially hidden below */
+            transition: opacity 1s ease, transform 1s ease; /* Smooth transition for visibility and movement */
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        h1 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #1e2a47;
+        }
+
+        p {
+            font-size: 12px;
+            color: #444;
+        }
+
+        .letter .signature {
+            font-style: italic;
+            text-align: right;
+            margin-top: 20px;
+        }
+
+        .content {
+            max-height: 200px;
+            overflow: auto;
+        }
+
+        /* Class for when the envelope is open */
+        .open .flap {
+            transform: rotateX(180deg); /* Flap rotates when the envelope opens */
+        }
+
+        .open ~ .letter {
+            opacity: 1;
+            transform: translateY(0); /* Letter slides into view when envelope is opened */
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="envelope" id="envelope">
+    <div class="flap"></div>
+</div>
+
+<div class="letter" id="letter">
+    <h1>to the first girl who has ever captured my heart, happy 19th birthday, katt!</h1>
+    <div class="content">
+        <p>i hope this special day of yours brings the brightest smile to your face, even though it’s been a month na since we last met😔. i know nga we’re both busy with school, pero padayon lang aa, para sa future. even with all the busy sched, always remember that i’m here for you through the toughest challenges and the happiest moments.</p>
+
+        <p>it’s been almost a year na gali since we started this journey together, and i’m hoping it will last a lifetime. no words can truly express how grateful i am to have you in my life. you’ve been the greatest and most unexpected plot twist, and I can’t imagine living without you anymore.</p>
+
+        <p>i know school has been stressful for you lately, pero don’t forget to take breaks when you need them. your progress will still be there waiting for you when you're ready—and so will i.</p>
+
+        <p>once again, happiest birthday my future accountant!</p>
+    </div>
+    <div class="content">
+        <p>truly yours, pat</p>
+        <p>(p.s. sensya sa letter di talaga aq marunong mag express hahwhsha)</p>
+    </div>
+</div>
+
+<script>
+    // Toggle the envelope open and close
+    const envelope = document.getElementById('envelope');
+    const letter = document.getElementById('letter');
+
+    envelope.addEventListener('click', () => {
+        envelope.classList.toggle('open');
+    });
+</script>
+
+</body>
+</html>

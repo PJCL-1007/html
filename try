@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Birthday Letter</title>
+
+    <style>
+
+        body {
+
+            background-color: #e0f7fa;
+
+            font-family: Arial, sans-serif;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            height: 100vh;
+
+            margin: 0;
+
+            flex-direction: column;
+
+        }
+
+
+        .envelope {
+
+            width: 400px;
+
+            height: 250px;
+
+            background-color: #1e5e81;
+
+            position: relative;
+
+            border-radius: 10px;
+
+            overflow: hidden;
+
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+            cursor: pointer;
+
+            transition: transform 0.5s ease;
+
+        }
+
+
+        .flap {
+
+            width: 100%;
+
+            height: 150px;
+
+            background-color: #16527c;
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            clip-path: polygon(0 100%, 50% 0%, 100% 100%);
+
+            transition: transform 0.5s ease;
+
+        }
+
+
+        .letter {
+
+            width: 100%;
+
+            max-width: 400px;
+
+            background-color: #ffffff;
+
+            padding: 30px;
+
+            box-sizing: border-box;
+
+            border-radius: 8px;
+
+            position: absolute;
+
+            top: 270px;
+
+            opacity: 0;
+
+            transform: translateY(-50px);
+
+            transition: opacity 0.5s ease, transform 0.5s ease;
+
+            font-size: 12px;
+
+            line-height: 1.5;
+
+        }
+
+
+        h1 {
+
+            font-size: 18px;
+
+            margin-bottom: 15px;
+
+            color: #1e2a47;
+
+        }
+
+
+        p {
+
+            font-size: 12px;
+
+            color: #444;
+
+        }
+
+
+        .letter .signature {
+
+            font-style: italic;
+
+            text-align: right;
+
+            margin-top: 20px;
+
+        }
+
+
+        .content {
+
+            max-height: 200px;
+
+            overflow: auto;
+
+        }
+
+
+        .open .flap {
+
+            transform: rotateX(180deg);
+
+        }
+
+
+        .open ~ .letter {
+
+            opacity: 1;
+
+            transform: translateY(0);
+
+        }
+
+
+    </style>
+
+</head>
+
+<body>
+
+
+<div class="envelope" id="envelope">
+
+    <div class="flap"></div>
+
+</div>
+
+
+<div class="letter" id="letter">
+
+    <h1>To whom it may concern</h1>
+
+    <div class="content">
+
+        <p>Please excuse me for being absent in your class last March 27 and 29 2023 because I suffers much in LBM(lost bowel movement) and severe headaches. I am aware that I miss to taken the activities and quizzes during my absent.</p>
+
+
+        <p>I also took a medical check up with dr Rose F Gomez last March 28 2023 at Saint Paul hospital and I have a medical certificate to support this.</p>
+
+
+        <p>With this, I am respectfully asking for your understanding to allowed me to complied with whatever I miss in lieu of my absences. Your kind gestures and approval regarding this matter is always appreciated.
+
+</p>
+
+
+        <p>God bless and more power to you.</p>
+
+    </div>
+
+
+<div class="content">
+
+        <p>Truly Yours</p>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    const envelope = document.getElementById('envelope');
+
+    const letter = document.getElementById('letter');
+
+
+    envelope.addEventListener('click', () => {
+
+        envelope.classList.toggle('open');
+
+    });
+
+</script>
+
+
+</body>
+
+</html>
